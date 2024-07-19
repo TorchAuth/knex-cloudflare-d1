@@ -5,7 +5,7 @@ class Client_D1 extends Client_BetterSQLite3 {
     super({
       ...config,
       connection: {
-        filename: "db",
+        filename: "db", // placeholder to silence warnings
       },
     });
 
@@ -14,16 +14,16 @@ class Client_D1 extends Client_BetterSQLite3 {
     }
 
     this.driverName = "d1";
-    this.d1Driver = config.connection.database;
+    // this.d1Driver = config.connection.database;
     this.driver = config.connection.database;
   }
 
   _driver() {
-    return this.d1Driver;
+    return this.driver;
   }
 
   async acquireRawConnection() {
-    return this.d1Driver;
+    return this.driver;
   }
 
   // Used to explicitly close a connection, called internally by the pool when

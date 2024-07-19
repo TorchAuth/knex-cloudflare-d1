@@ -2,11 +2,11 @@
   "name": "@torchauth/knex-cloudflare-d1",
   "version": "0.1.1",
   "description": "better-sqlite3 Cloudflare D1 dialect for Knex.js",
+  "main": "src/client.js",
+  "types": "./types/index.d.ts",
   "homepage": "https://github.com/kiddyuchina/knex-cloudflare-d1",
-  "main": "src/client",
   "author": "Kidd Yu & Bruce Harrison",
   "license": "MIT",
-  "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/TorchAuth/knex-cloudflare-d1"
@@ -15,7 +15,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "mocha --config ./tests/mocha.js"
+    "test": "vitest"
   },
   "peerDependencies": {
     "better-sqlite3": ">=11.0.0",
@@ -29,8 +29,8 @@
     "sqlite"
   ],
   "devDependencies": {
-    "chai": "^4.3.6",
-    "chai-as-promised": "^7.1.1",
-    "mocha": "^10.6.0"
+    "vitest": "^2.0.3",
+    "vitest-environment-miniflare": "^2.14.2",
+    "wrangler": "^3.65.0"
   }
 }
