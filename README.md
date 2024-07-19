@@ -1,8 +1,8 @@
 # knex-cloudflare-d1
 
-[![Version](https://img.shields.io/npm/v/knex-cloudflare-d1.svg)](https://npmjs.com/package/knex-cloudflare-d1)
-
 Cloudflare D1 dialect for Knex.js.
+
+Forked from [[https://github.com/kiddyuchina/knex-cloudflare-d1](https://github.com/kiddyuchina/knex-cloudflare-d1)] and altered to use `better-sqlite3` instead of `sqlite3`.
 
 ## Install
 
@@ -15,8 +15,8 @@ pnpm add knex-cloudflare-d1
 ## Usage
 
 ```js
-import Knex from 'knex';
-import ClientD1 from 'knex-cloudflare-d1';
+import Knex from "knex";
+import ClientD1 from "knex-cloudflare-d1";
 
 export interface Env {
   DB: D1Database;
@@ -29,15 +29,14 @@ export default {
     const knex = Knex({
       client: ClientD1,
       connection: {
-        database: env.DB
+        database: env.DB,
       },
       useNullAsDefault: true,
     });
 
     // ...
-  }
-}
-
+  },
+};
 ```
 
 ## Author

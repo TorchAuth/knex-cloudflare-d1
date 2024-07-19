@@ -1,7 +1,7 @@
 {
-  "name": "knex-cloudflare-d1",
+  "name": "@torchauth/knex-cloudflare-d1",
   "version": "0.1.1",
-  "description": "Cloudflare D1 dialect for Knex.js",
+  "description": "better-sqlite3 Cloudflare D1 dialect for Knex.js",
   "homepage": "https://github.com/kiddyuchina/knex-cloudflare-d1",
   "main": "src/client",
   "types": "./types/index.d.ts",
@@ -29,4 +29,3 @@
   "readmeFilename": "README.md",
   "license": "MIT"
 }
-  

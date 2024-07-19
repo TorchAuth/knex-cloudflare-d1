@@ -1,26 +1,24 @@
-const Client_Sqlite3 = require('knex/lib/dialects/sqlite3/index');
+const Client_BetterSQLite3 = require("knex/lib/dialects/better-sqlite3/index");
 
-class Client_D1 extends Client_Sqlite3 {
+class Client_D1 extends Client_BetterSQLite3 {
   constructor(config) {
     super({
       ...config,
       connection: {
-        filename: 'db',
+        filename: "db",
       },
     });
 
     if (!config?.connection?.database) {
-      this.logger.warn(
-        'Could not find `connection.database` in config.'
-      );
+      this.logger.warn("Could not find `connection.database` in config.");
     }
 
-    this.driverName = 'd1';
+    this.driverName = "d1";
     this.d1Driver = config.connection.database;
-    this.driver = config.connection.database
+    this.driver = config.connection.database;
   }
 
-  _driver () {
+  _driver() {
     return this.d1Driver;
   }
 
@@ -37,28 +35,31 @@ class Client_D1 extends Client_Sqlite3 {
   // Runs the query on the specified connection, providing the bindings and any
   // other necessary prep work.
   async _query(connection, obj) {
-    if (!obj.sql) throw new Error('The query is empty');
+    if (!obj.sql) throw new Error("The query is empty");
 
     const { method } = obj;
     let callMethod;
     switch (method) {
-      case 'insert':
-      case 'update':
-        callMethod = obj.returning ? 'all' : 'run';
+      case "insert":
+      case "update":
+        callMethod = obj.returning ? "all" : "run";
         break;
-      case 'counter':
-      case 'del':
-        callMethod = 'run';
+      case "counter":
+      case "del":
+        callMethod = "run";
         break;
       default:
-        callMethod = 'all';
+        callMethod = "all";
     }
 
     if (!connection) {
       new Error(`Error calling ${callMethod} on connection.`);
     }
 
-    const { results } = await connection.prepare(obj.sql).bind(...obj.bindings)?.[callMethod]();
+    const { results } = await connection
+      .prepare(obj.sql)
+      .bind(...obj.bindings)
+      ?.[callMethod]();
 
     obj.response = results;
     obj.context = this;
@@ -66,14 +67,14 @@ class Client_D1 extends Client_Sqlite3 {
   }
 
   _stream(connection, obj, stream) {
-    if (!obj.sql) throw new Error('The query is empty');
+    if (!obj.sql) throw new Error("The query is empty");
 
     const client = this;
-    stream.on('error', (error) => {
-      throw error
+    stream.on("error", (error) => {
+      throw error;
     });
-    stream.on('end', () => {
-      stream.emit('finish');
+    stream.on("end", () => {
+      stream.emit("finish");
     });
 
     return client
@@ -81,12 +82,12 @@ class Client_D1 extends Client_Sqlite3 {
       .then((obj) => obj.response)
       .then((rows) => rows.forEach((row) => stream.write(row)))
       .catch(function (err) {
-        stream.emit('error', err);
+        stream.emit("error", err);
       })
       .then(function () {
         stream.end();
       });
   }
-};
+}
 
 module.exports = Client_D1;
