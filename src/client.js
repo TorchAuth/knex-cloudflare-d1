@@ -14,7 +14,7 @@ class Client_D1 extends Client_BetterSQLite3 {
     }
 
     this.driverName = "d1";
-    // this.d1Driver = config.connection.database;
+    this.d1Driver = config.connection.database;
     this.driver = config.connection.database;
   }
 
