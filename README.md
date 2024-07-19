@@ -2,7 +2,7 @@
 
 Cloudflare D1 dialect for Knex.js.
 
-Forked from [[https://github.com/kiddyuchina/knex-cloudflare-d1](https://github.com/kiddyuchina/knex-cloudflare-d1)] and altered to use `better-sqlite3` instead of `sqlite3`.
+Forked from [https://github.com/kiddyuchina/knex-cloudflare-d1](https://github.com/kiddyuchina/knex-cloudflare-d1) and altered to use `better-sqlite3` instead of `sqlite3`.
 
 ## Install
 
