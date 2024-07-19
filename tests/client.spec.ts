@@ -1,7 +1,7 @@
 "use strict";
 import knex from "knex";
 import Client_D1 from "../src/client";
-import { describe, it, expect, beforeEach, beforeAll } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 
 // DEBUG=knex:*
 
