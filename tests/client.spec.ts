@@ -32,10 +32,10 @@ describe("better-sqlite3 unit tests", () => {
     expect(result.answer).to.equal(4);
   });
 
-  it("can insert row", async () => {
-    await knexInstance("table01").insert([{ name: "test" }]);
+  it("can insert and query rows", async () => {
+    await knexInstance("table01").insert([{ name: "test" }, { name: "test2" }]);
 
     const rows = await knexInstance("table01").select("*");
-    expect(rows.length).to.equal(1);
+    expect(rows.length).to.equal(2);
   });
 });

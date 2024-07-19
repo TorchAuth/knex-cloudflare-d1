@@ -10,11 +10,10 @@ class Client_D1 extends Client_BetterSQLite3 {
     });
 
     if (!config?.connection?.database) {
-      this.logger.warn("Could not find `connection.database` in config.");
+      this.logger.error("Could not find `connection.database` in config.");
     }
 
     this.driverName = "d1";
-    this.d1Driver = config.connection.database;
     this.driver = config.connection.database;
   }
 
