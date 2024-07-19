@@ -4,7 +4,7 @@
   "description": "better-sqlite3 Cloudflare D1 dialect for Knex.js",
   "main": "src/client.js",
   "types": "./types/index.d.ts",
-  "homepage": "https://github.com/kiddyuchina/knex-cloudflare-d1",
+  "homepage": "https://github.com/TorchAuth/knex-cloudflare-d1",
   "author": "Kidd Yu",
   "license": "MIT",
   "repository": {
