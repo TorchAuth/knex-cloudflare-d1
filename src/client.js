@@ -1,6 +1,6 @@
-const Client_BetterSQLite3 = require("knex/lib/dialects/better-sqlite3/index");
+const Client_SQLite3 = require("knex/lib/dialects/sqlite3/index");
 
-class Client_D1 extends Client_BetterSQLite3 {
+class Client_D1 extends Client_SQLite3 {
   constructor(config) {
     super({
       ...config,
@@ -13,7 +13,6 @@ class Client_D1 extends Client_BetterSQLite3 {
       this.logger.error("Could not find `connection.database` in config.");
     }
 
-    this.driverName = "d1";
     this.driver = config.connection.database;
   }
 
@@ -88,5 +87,10 @@ class Client_D1 extends Client_BetterSQLite3 {
       });
   }
 }
+
+Object.assign(Client_D1.prototype, {
+  // The "dialect", for reference .
+  driverName: "d1",
+});
 
 module.exports = Client_D1;

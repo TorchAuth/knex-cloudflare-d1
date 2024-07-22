@@ -1,6 +1,6 @@
 {
   "name": "@torchauth/knex-cloudflare-d1",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "better-sqlite3 Cloudflare D1 dialect for Knex.js",
   "main": "src/client.js",
   "types": "./types/index.d.ts",
